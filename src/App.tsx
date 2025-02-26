@@ -7,6 +7,7 @@ import { Access_Token_Interface } from './Access_Token_Interface';
 
 
 import { apiKeyProvider } from './Contexts/Access_Token_Context';
+import AllPets from './Components/AllPets/AllPets';
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
     const [token, setToken] = useState<Access_Token_Interface>({access_token: "", token_type: "", expires_in: 0});
      
   useEffect(() => {
-      const grantAPIKey = async() => {
+       (async function(){
          const res = await fetch(`https://api.petfinder.com/v2/oauth2/token`, {
           method: "POST",
           headers: {'Content-Type': 'application/x-www-form-urlencoded' },
@@ -29,9 +30,7 @@ function App() {
 
          return res
        
-      }
-
-      grantAPIKey().then((res) => res.json()).then((accessTokenObj) => setToken({
+      })().then((res) => res.json()).then((accessTokenObj) => setToken({
         token_type: accessTokenObj.token_type,
         access_token: accessTokenObj.access_token,
         expires_in: accessTokenObj.expires_in
@@ -43,6 +42,7 @@ function App() {
   return (
     <apiKeyProvider.Provider value={token}>
       <Homepage/>
+      <AllPets/>
     </apiKeyProvider.Provider>
     
   )
