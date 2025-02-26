@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Homepage from './Components/Homepage/Homepage';
 import { Access_Token_Interface } from './Access_Token_Interface';
 
-// eslint-disable-next-line react-refresh/only-export-components
+
 import { apiKeyProvider } from './Contexts/Access_Token_Context';
 
 function App() {
