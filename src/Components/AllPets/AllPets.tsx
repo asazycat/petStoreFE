@@ -1,10 +1,11 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { apiKeyProvider } from "../../Contexts/Access_Token_Context";
 
 
 
 export default function AllPets() {
 
+    const [allPets, setAllPets] = useState([])
     const {token_type, access_token} = useContext(apiKeyProvider)
     useEffect(() => {
         (async function() {
@@ -12,10 +13,10 @@ export default function AllPets() {
                 Authorization: `${token_type} ${access_token}`
             }})
             return res
-        })().then((res) => res.json()).then((res) => console.log(res))
+        })().then((res) => res.json()).then((res) => setAllPets(res.animals))
     }, [access_token, token_type])
 
     return (
-        <></>
+        <>{JSON.stringify(allPets)}</>
     );
 } 
