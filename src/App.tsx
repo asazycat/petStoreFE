@@ -3,7 +3,7 @@ import './App.css'
 import {useEffect } from 'react';
 import { useState } from 'react';
 import Homepage from './Components/Homepage/Homepage';
-import { Access_Token_Interface } from './Access_Token_Interface';
+import { Access_Token_Interface } from './Interfaces';
 
 
 import { apiKeyProvider } from './Contexts/Access_Token_Context';
