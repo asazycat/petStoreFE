@@ -9,17 +9,17 @@ export default function AllPets() {
     const [allPets, setAllPets] = useState<Pet[]>([])
     const {token_type, access_token} = useContext(apiKeyProvider)
     useEffect(() => {
-        (async function() {
+        if(access_token != "") {(async function() {
             const res= await fetch("https://api.petfinder.com/v2/animals", {headers: {
                 Authorization: `${token_type} ${access_token}`
             }})
             return res
-        })().then((res) => res.json()).then((res) => setAllPets(res.animals))
+        })().then((res) => res.json()).then((res) => setAllPets(res.animals))}
     }, [access_token, token_type])
     
     return (
         <ul>
-            {allPets.map((pet) => <EachPet id={pet.id} pet={pet}/>)}
+            {allPets.map((pet) => <li key={pet.id}><EachPet pet={pet}/></li>)}
         </ul>
         
     );

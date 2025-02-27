@@ -1,13 +1,12 @@
 
 import './App.css'
-import {useEffect } from 'react';
-import { useState } from 'react';
-import Homepage from './Components/Homepage/Homepage';
+import {useEffect,useState } from 'react';
+
 import { Access_Token_Interface } from './Interfaces';
-
-
+import {routerMap} from "./Routers"
 import { apiKeyProvider } from './Contexts/Access_Token_Context';
-import AllPets from './Components/AllPets/AllPets';
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 function App() {
 
@@ -15,7 +14,7 @@ function App() {
     const apiKey = "Gk08pSE81ZKzShC48ywBTUlBpRtFWdCSjmw9O3sqBQoHh1CTF7";
     const secret = "10o5Mii3nqRUjiRgmGY79uQAJBK9yIyK66Sh540Z"
     const [token, setToken] = useState<Access_Token_Interface>({access_token: "", token_type: "", expires_in: 0});
-     
+    const router = createBrowserRouter(routerMap)   
   useEffect(() => {
        (async function(){
          const res = await fetch(`https://api.petfinder.com/v2/oauth2/token`, {
@@ -40,10 +39,11 @@ function App() {
       
 
   return (
+    
     <apiKeyProvider.Provider value={token}>
-      <Homepage/>
-      <AllPets/>
+      <RouterProvider router={router}/>
     </apiKeyProvider.Provider>
+   
     
   )
 }
