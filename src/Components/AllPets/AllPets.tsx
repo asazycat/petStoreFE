@@ -2,9 +2,8 @@ import { useContext, useEffect, useState, useMemo } from "react";
 import { apiKeyProvider } from "../../Contexts/Access_Token_Context";
 import { Pet } from "../../Interfaces";
 import EachPet from "./EachPet";
-import { useRenderCount } from "@uidotdev/usehooks";
 export default function AllPets() {
-    const renderCount = useRenderCount();
+  
     const [allPets, setAllPets] = useState<Pet[]>([])
     const {token_type, access_token} = useContext(apiKeyProvider)
     
@@ -26,7 +25,7 @@ export default function AllPets() {
          setAllPets(resolved.animals)
         })()
     }, [access_token, retrievePets, token_type])
-    console.log(renderCount)
+
     
     return (
         <ul>
