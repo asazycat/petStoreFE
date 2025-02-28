@@ -8,13 +8,13 @@ export default function PetPage() {
     const {token_type, access_token} = useContext(apiKeyProvider)
     const [pet, setPet] = useState({})
     useEffect(() => {
-       if(access_token != "") {(async function() {
+   (async function() {
             const res = await fetch(`https://api.petfinder.com/v2/animals/${id}`, {headers: {
                     Authorization: `${token_type} ${access_token}`
                 }})
             return res
         })().then((res) => res.json()).then((res) =>setPet(res.animal))
-    }},[access_token, id, token_type])
+    },[access_token, id, token_type])
 
     return (
         <>
