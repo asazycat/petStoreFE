@@ -36,7 +36,7 @@ function App() {
       }))
   }, [])
 
-      
+    if (token.access_token !== "") {
 
   return (
     
@@ -46,6 +46,7 @@ function App() {
    
     
   )
+}
 }
 
 export default App
