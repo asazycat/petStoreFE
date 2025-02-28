@@ -2,12 +2,11 @@
 import { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { apiKeyProvider } from "../../Contexts/Access_Token_Context";
-import { Pet } from "../../Interfaces";
 export default function PetPage() {
 
     const {id} = useParams();
     const {token_type, access_token} = useContext(apiKeyProvider)
-    const [pet, setPet] = useState<Pet>({})
+    const [pet, setPet] = useState({})
     useEffect(() => {
        if(access_token != "") {(async function() {
             const res = await fetch(`https://api.petfinder.com/v2/animals/${id}`, {headers: {
