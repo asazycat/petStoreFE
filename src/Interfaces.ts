@@ -24,7 +24,7 @@ export interface Pet {
     description:string,
     organization_animal_id:string,
     photos:[],
-    primary_photo_cropped:string,
+    primary_photo_cropped:{small: "", medium: "", large: "", full: ""},
     videos:string,
     status: string,
     status_changed_at: string,

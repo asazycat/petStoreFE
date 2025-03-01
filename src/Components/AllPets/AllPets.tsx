@@ -25,13 +25,14 @@ export default function AllPets() {
          setAllPets(resolved.animals)
         })()
     }, [access_token, retrievePets, token_type])
-
+ 
     if(allPets.length !== 0) {
     return (
-        <ul>
-            {allPets.map((pet) => <li key={pet.id}><EachPet pet={pet}/></li>)}
-        </ul>
-        
+        <div className="pets">
+            <ul>
+                {allPets.map((pet) => <li key={pet.id}><EachPet pet={pet}/></li>)}
+            </ul>
+        </div>
     );
 }
 } 
