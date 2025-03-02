@@ -31,7 +31,7 @@ export default function AllPets() {
     return (
         <div className="pets">
             <ul>
-                {allPets.map((pet) => {if(pet.primary_photo_cropped) {return (<li key={pet.id}><EachPet pet={pet}/></li>)}})}
+                {allPets.map((pet) => {if(pet.primary_photo_cropped) {return (    <div className="pet"><li key={pet.id}><EachPet pet={pet}/></li></div>)}})}
             </ul>
         </div>
     );
