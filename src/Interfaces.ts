@@ -23,7 +23,7 @@ export interface Pet {
     name:string,
     description:string,
     organization_animal_id:string,
-    photos:[],
+    photos:[{small: "", medium: "", large: "", full: ""}],
     primary_photo_cropped:{small: "", medium: "", large: "", full: ""},
     videos:string,
     status: string,

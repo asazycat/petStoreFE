@@ -25,7 +25,7 @@ export default function PetPage() {
     name:'',
     description:'',
     organization_animal_id:'',
-    photos:[],
+    photos:[{small: "", medium: "", large: "", full: ""}],
     primary_photo_cropped:{small: "", medium: "", large: "", full: ""},
     videos:'',
     status: '',
