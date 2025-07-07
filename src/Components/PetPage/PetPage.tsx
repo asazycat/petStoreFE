@@ -8,7 +8,7 @@ export default function PetPage() {
     const {id} = useParams();
     const {token_type, access_token} = useContext(apiKeyProvider)
     const [pet, setPet] = useState<Pet>({
-    id: 0,
+    id: '0',
     organization_id:'',
     url:'',
     type:'',

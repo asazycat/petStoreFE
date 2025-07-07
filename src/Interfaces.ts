@@ -6,7 +6,7 @@ export interface Access_Token_Interface {
 
 
 export interface Pet {
-    id: number,
+    id: string,
     organization_id:string,
     url:string,
     type:string,
