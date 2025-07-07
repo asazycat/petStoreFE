@@ -2,7 +2,6 @@ import { useContext, useEffect, useState, useMemo, useCallback} from "react";
 import { apiKeyProvider } from "../../Contexts/Access_Token_Context";
 import { Pet } from "../../Interfaces";
 import EachPet from "./EachPet";
-import "./pets.css"
 export default function AllPets() {
     const [page, setPage] = useState(1)
     const [allPets, setAllPets] = useState<Pet[]>([]);
@@ -16,7 +15,7 @@ export default function AllPets() {
     }, [page]);
     const retrievePets = useMemo(async () => {
        
-    return await fetch(`https://api.petfinder.com/v2/animals?page=${page}&limit=10`, {
+    return await fetch(`https://api.petfinder.com/v2/animals?page=${page}&limit=100`, {
                 headers: {
                     Authorization: `${token_type} ${access_token}`
                 }
@@ -30,7 +29,7 @@ export default function AllPets() {
             (async function () {
          const resolved = await Promise.resolve(retrievePets)
                 const {animals} = resolved
-                // console.log(resolved)
+                console.log(resolved)
          setAllPets(animals)
         })()
     }, [access_token, retrievePets, token_type])

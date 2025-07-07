@@ -1,5 +1,4 @@
 
-import './App.css'
 import {useEffect,useState } from 'react';
 
 import { Access_Token_Interface } from './Interfaces';
