@@ -1,23 +1,28 @@
 
 import AllPets from "./Components/AllPets/AllPets";
 import Homepage from "./Components/Homepage/Homepage";
+import Layout from "./Components/Layout";
 import PetPage from "./Components/PetPage/PetPage";
 
 export const routerMap = [
     
     {
-        path: '/pets',
-        element: <AllPets/>,
-    
-            
-        
-    },
-    {
         path: '/',
-        element: <Homepage/>
-    },
-    {
-        path:'/pets/:id',
-        element: <PetPage/>
+        element: <Layout />,
+        children: [
+            {
+                index: true,
+                element: <Homepage/>
+            },
+            {
+                path: 'pets',
+                element: <AllPets />,
+          
+            },
+            {
+                path: 'pets/:id',
+                element: <PetPage/>
+            }
+        ]
     }
 ]

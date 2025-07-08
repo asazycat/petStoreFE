@@ -46,7 +46,7 @@ export default function PetPage() {
  
     return (
         <>
-        <h1>{pet.name}</h1>
+        <h1>{pet.name} individual</h1>
         <img src={`${pet.primary_photo_cropped['small']}`}/>
         </>
     )

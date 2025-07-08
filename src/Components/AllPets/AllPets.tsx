@@ -6,9 +6,6 @@ export default function AllPets() {
     const [page, setPage] = useState(1)
     const [allPets, setAllPets] = useState<Pet[]>([]);
     const {token_type, access_token} = useContext(apiKeyProvider);
-     function imageShow(img:string) {
-        console.log(img)
-    }
     const pageNumbersNext = useCallback(()=> {
         setPage(page + 1)
      
@@ -29,7 +26,6 @@ export default function AllPets() {
             (async function () {
          const resolved = await Promise.resolve(retrievePets)
                 const {animals} = resolved
-                console.log(resolved)
          setAllPets(animals)
         })()
     }, [access_token, retrievePets, token_type])
@@ -40,7 +36,7 @@ export default function AllPets() {
       
             <ul className="grid grid-rows-4">
                 {allPets.map((pet) => {if(pet.primary_photo_cropped) {
-                    imageShow(pet.primary_photo_cropped["small"])
+                   
                     return (
                         <li key={pet.id} className="pet"><EachPet id={pet.id} name={pet.name} img={pet.primary_photo_cropped["small"]} />
                             
