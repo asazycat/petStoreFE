@@ -8,7 +8,7 @@ export default function EachPet ({id, name, img}: {id: string, name: string, img
    
     return (
         <>
-            <h1>Each Pet</h1>
+          
         <Link to={`/pets/${id}`}>
         <p>{name}</p>
         <img src={`${img}`} alt={img} height="200px" width="300px"/>

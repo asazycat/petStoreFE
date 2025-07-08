@@ -38,7 +38,7 @@ export default function AllPets() {
     return (
         <>
       
-            <ul className="pets">
+            <ul className="grid grid-rows-4">
                 {allPets.map((pet) => {if(pet.primary_photo_cropped) {
                     imageShow(pet.primary_photo_cropped["small"])
                     return (
